@@ -16,4 +16,14 @@ public class Student {
     private String status;
     private String createdAt;
     private String updatedAt;
+
+    //Default constructor;
+    public Student(){}
+
+    //Parameterised constructor;
+    public Student(int id,String name,int age,String gender,String email,String phone,String address,
+                   Date dateOfBirth,Date admissionDate,String course,double fee,String status,String createdAt,
+                   String updatedAt){
+
+    }
 }
