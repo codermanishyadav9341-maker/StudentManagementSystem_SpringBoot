@@ -86,8 +86,10 @@ public class Student {
 
 
     public void setGender(String gender){
-        if(gender != null && gender.equalsIgnoreCase("Male")||
-        gender.equalsIgnoreCase("Female")|| gender.equalsIgnoreCase("Other")){
+        if(gender != null &&
+                (gender.equalsIgnoreCase("Male")||
+                 gender.equalsIgnoreCase("Female")||
+                gender.equalsIgnoreCase("Other"))){
             this.gender = gender;
         }
          else{
@@ -100,7 +102,7 @@ public class Student {
     }
 
     public void setEmail(String email){
-        if(email != null && email.contains("@")){
+        if(email != null && email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")){
             this.email = email;
         }
         else{
@@ -113,7 +115,7 @@ public class Student {
     }
 
     public void setPhone(String phone){
-        if(phone != null && phone.contains("\\10")){
+        if(phone != null && phone.matches("\\d{10}")){
             this.phone = phone;
         }
          else{
@@ -162,5 +164,55 @@ public class Student {
 
     public LocalDate getAdmissionDate(){
         return admissionDate;
+    }
+
+    public void setCourse(String course){
+        if(course != null && !course.trim().isEmpty()){
+            this.course = course;
+        }
+         else{
+             System.out.println("Invalid course");
+        }
+    }
+
+    public String getCourse(){
+        return course;
+    }
+
+    public void setFee(double fee){
+        if(fee >= 0){
+            this.fee = fee;
+        }
+         else{
+             System.out.println("Invalid fee");
+        }
+    }
+
+    public Double getFee(){
+        return fee;
+    }
+
+    public void setStatus(String status){
+        this.status = status;
+    }
+
+    public String getStatus(){
+        return status;
+    }
+
+    public void setCreatedAt(String createdAt){
+        this.createdAt =createdAt;
+    }
+
+    public String getCreatedAt(){
+        return createdAt;
+    }
+
+    public void setUpdatedAt(String updatedAt){
+        this.updatedAt = updatedAt;
+    }
+
+    public String getUpdatedAt(){
+        return updatedAt;
     }
 }
