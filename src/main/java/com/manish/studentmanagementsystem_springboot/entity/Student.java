@@ -25,5 +25,19 @@ public class Student {
                    Date dateOfBirth,Date admissionDate,String course,double fee,String status,String createdAt,
                    String updatedAt){
 
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.dateOfBirth = dateOfBirth;
+        this.admissionDate = admissionDate;
+        this.course = course;
+        this.fee = fee;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 }
