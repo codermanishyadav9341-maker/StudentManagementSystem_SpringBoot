@@ -40,4 +40,46 @@ public class Student {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
+    //------------------Getter && Setter-----------------------------------------;
+    public void setId(int id){
+        if(id >= 0){
+            this.id = id;
+        }
+         else{
+             System.out.println("Id cannot be negative");
+        }
+    }
+
+    public Integer getId(){
+        return id;
+    }
+
+    public void setName(String name){
+        if(name == null){
+            this.name = name;
+        }
+         else{
+             System.out.println("Name is not empty");
+        }
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setAge(int age){
+        if(age >= 0  && age < 100){
+            this.age = age;
+        }
+         else{
+             System.out.println("Age cannot be negative");
+        }
+    }
+
+    public Integer getAge(){
+        return age;
+    }
+
+
 }
