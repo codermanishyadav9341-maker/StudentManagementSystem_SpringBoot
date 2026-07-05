@@ -1,6 +1,9 @@
 package com.manish.studentmanagementsystem_springboot.entity;
 
-import java.sql.Date;
+
+
+import java.time.LocalDate;
+
 public class Student {
     private int id;
     private String name;
@@ -9,8 +12,8 @@ public class Student {
     private String email;
     private String phone;
     private String address;
-    private Date dateOfBirth;
-    private Date admissionDate;
+    private LocalDate dateOfBirth;
+    private LocalDate admissionDate;
     private String course;
     private Double fee;
     private String status;
@@ -22,7 +25,7 @@ public class Student {
 
     //Parameterised constructor;
     public Student(int id,String name,int age,String gender,String email,String phone,String address,
-                   Date dateOfBirth,Date admissionDate,String course,double fee,String status,String createdAt,
+                   LocalDate dateOfBirth,LocalDate admissionDate,String course,double fee,String status,String createdAt,
                    String updatedAt){
 
         this.id = id;
@@ -56,7 +59,7 @@ public class Student {
     }
 
     public void setName(String name){
-        if(name == null){
+        if(name != null && !name.trim().isEmpty()){
             this.name = name;
         }
          else{
@@ -82,4 +85,82 @@ public class Student {
     }
 
 
+    public void setGender(String gender){
+        if(gender != null && gender.equalsIgnoreCase("Male")||
+        gender.equalsIgnoreCase("Female")|| gender.equalsIgnoreCase("Other")){
+            this.gender = gender;
+        }
+         else{
+             System.out.println("Invalid gender");
+        }
+    }
+
+    public String getGender(){
+        return gender;
+    }
+
+    public void setEmail(String email){
+        if(email != null && email.contains("@")){
+            this.email = email;
+        }
+        else{
+            System.out.println("Invalid email");
+        }
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public void setPhone(String phone){
+        if(phone != null && phone.contains("\\10")){
+            this.phone = phone;
+        }
+         else{
+             System.out.println("Invalid phone number");
+        }
+    }
+
+    public String getPhone(){
+        return phone;
+    }
+
+    public void setAddress(String address){
+        if(address != null && !address.trim().isEmpty()){
+            this.address = address;
+        }
+         else{
+             System.out.println("Invalid address");
+        }
+    }
+
+    public String getAddress(){
+        return address;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth){
+        if(dateOfBirth != null && !dateOfBirth.isAfter(LocalDate.now())){
+            this.dateOfBirth = dateOfBirth;
+        }
+         else{
+             System.out.println("Invalid date of birth;");
+        }
+    }
+
+    public LocalDate getDateOfBirth(){
+        return dateOfBirth;
+    }
+
+    public void setAdmissionDate(LocalDate admissionDate){
+        if(admissionDate != null && !admissionDate.isAfter(LocalDate.now())){
+            this.admissionDate = admissionDate;
+        }
+         else{
+             System.out.println("Invalid admissionDate");
+        }
+    }
+
+    public LocalDate getAdmissionDate(){
+        return admissionDate;
+    }
 }
