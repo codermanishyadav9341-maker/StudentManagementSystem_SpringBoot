@@ -2,31 +2,42 @@ package com.manish.studentmanagementsystem_springboot.entity;
 
 
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "students")
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false)
     private String name;
     private int age;
     private String gender;
+    @Column(unique = true,nullable = false)
     private String email;
+    @Column(length = 10)
     private String phone;
     private String address;
     private LocalDate dateOfBirth;
     private LocalDate admissionDate;
     private String course;
+    @Positive
     private Double fee;
     private String status;
-    private String createdAt;
-    private String updatedAt;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
 
     //Default constructor;
     public Student(){}
 
     //Parameterised constructor;
     public Student(int id,String name,int age,String gender,String email,String phone,String address,
-                   LocalDate dateOfBirth,LocalDate admissionDate,String course,double fee,String status,String createdAt,
-                   String updatedAt){
+                   LocalDate dateOfBirth,LocalDate admissionDate,String course,double fee,String status,LocalDate createdAt,
+                   LocalDate updatedAt){
 
         this.id = id;
         this.name = name;
@@ -193,26 +204,32 @@ public class Student {
     }
 
     public void setStatus(String status){
-        this.status = status;
+        if(status != null && (status.equalsIgnoreCase("Active")
+        || status.equalsIgnoreCase("Inactive"))) {
+            this.status = status;
+        }
+        else{
+            throw new IllegalArgumentException("Invalid status");
+        }
     }
 
     public String getStatus(){
         return status;
     }
 
-    public void setCreatedAt(String createdAt){
+    public void setCreatedAt(LocalDate createdAt){
         this.createdAt =createdAt;
     }
 
-    public String getCreatedAt(){
+    public LocalDate getCreatedAt(){
         return createdAt;
     }
 
-    public void setUpdatedAt(String updatedAt){
+    public void setUpdatedAt(LocalDate updatedAt){
         this.updatedAt = updatedAt;
     }
 
-    public String getUpdatedAt(){
+    public LocalDate getUpdatedAt(){
         return updatedAt;
     }
 }
