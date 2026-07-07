@@ -137,7 +137,7 @@ public class Student {
             this.phone = phone;
         }
          else{
-             System.out.println("Invalid phone number");
+           throw new IllegalArgumentException("Invalid phone number");
         }
     }
 
@@ -150,7 +150,7 @@ public class Student {
             this.address = address;
         }
          else{
-             System.out.println("Invalid address");
+             throw new IllegalArgumentException("Invalid address");
         }
     }
 
@@ -163,7 +163,7 @@ public class Student {
             this.dateOfBirth = dateOfBirth;
         }
          else{
-             System.out.println("Invalid date of birth;");
+            throw new IllegalArgumentException("Invalid dateOfBirth");
         }
     }
 
@@ -176,7 +176,7 @@ public class Student {
             this.admissionDate = admissionDate;
         }
          else{
-             System.out.println("Invalid admissionDate");
+             throw new IllegalArgumentException("Invalid admissionDate");
         }
     }
 
@@ -189,7 +189,7 @@ public class Student {
             this.course = course;
         }
          else{
-             System.out.println("Invalid course");
+            throw new IllegalArgumentException("Invalid course");
         }
     }
 
@@ -202,7 +202,7 @@ public class Student {
             this.fee = fee;
         }
          else{
-             System.out.println("Invalid fee");
+            throw new IllegalArgumentException("Invalid fee");
         }
     }
 
