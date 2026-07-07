@@ -81,7 +81,7 @@ public class Student {
             this.name = name;
         }
          else{
-             System.out.println("Name is not empty");
+            throw new IllegalArgumentException("Invalid name");
         }
     }
 
@@ -94,7 +94,7 @@ public class Student {
             this.age = age;
         }
          else{
-             System.out.println("Age cannot be negative");
+            throw new IllegalArgumentException("Invalid age");
         }
     }
 
@@ -111,7 +111,7 @@ public class Student {
             this.gender = gender;
         }
          else{
-             System.out.println("Invalid gender");
+            throw new IllegalArgumentException("Invalid gender");
         }
     }
 
@@ -124,7 +124,7 @@ public class Student {
             this.email = email;
         }
         else{
-            System.out.println("Invalid email");
+           throw new IllegalArgumentException("Invalid email");
         }
     }
 
