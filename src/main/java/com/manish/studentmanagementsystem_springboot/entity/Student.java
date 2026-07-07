@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column(nullable = false,length = 15)
     private String name;
     @Column(nullable = false)
@@ -42,7 +42,7 @@ public class Student {
     public Student(){}
 
     //Parameterised constructor;
-    public Student(int id,String name,int age,String gender,String email,String phone,String address,
+    public Student(Long id,String name,int age,String gender,String email,String phone,String address,
                    LocalDate dateOfBirth,LocalDate admissionDate,String course,double fee,String status,LocalDate createdAt,
                    LocalDate updatedAt){
 
@@ -63,7 +63,7 @@ public class Student {
     }
 
     //------------------Getter && Setter-----------------------------------------;
-    public void setId(int id){
+    public void setId(Long id){
         if(id >= 0){
             this.id = id;
         }
@@ -72,7 +72,7 @@ public class Student {
         }
     }
 
-    public Integer getId(){
+    public Long getId(){
         return id;
     }
 
