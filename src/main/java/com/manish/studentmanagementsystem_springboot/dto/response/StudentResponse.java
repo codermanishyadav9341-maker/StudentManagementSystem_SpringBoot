@@ -12,5 +12,9 @@ public class StudentResponse {
     private String phone;
     private LocalDate dateOfBirth;
     private LocalDate admissionDate;
-
+    private String course;
+    private Double fee;
+    private String status;
+    private LocalDate createdAt;
+    private LocalDate updateAt;
 }
