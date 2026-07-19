@@ -64,12 +64,10 @@ public class Student {
 
     //------------------Getter && Setter-----------------------------------------;
     public void setId(Long id){
-        if(id >= 0){
-            this.id = id;
-        }
-         else{
-             System.out.println("Id cannot be negative");
-        }
+       if(id <= 0){
+           throw new IllegalArgumentException("Id must be positive number");
+       }
+        this.id = id;
     }
 
     public Long getId(){
