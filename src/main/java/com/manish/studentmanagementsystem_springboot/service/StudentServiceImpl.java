@@ -33,10 +33,19 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public List<StudentResponse> getAllStudentById(Long id){
+    public StudentResponse getStudentById(Long id){
 
-        List<Student> students = studentRepository.findAll();
-
-        return studentMapper.toResponseList(students);
+        Student student = studentRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Student does not found with id " +id));
+        return studentMapper.toResponse(student);
     }
+
+    @Override
+    public StudentResponse getStudentByEmail(String email){
+
+        Student student = studentRepository.findByEmail(email)
+                .orElseThrow(() -> new  RuntimeException("Student does not found with email:- " +email));
+        return studentMapper.toResponse(student);
+    }
+
 }

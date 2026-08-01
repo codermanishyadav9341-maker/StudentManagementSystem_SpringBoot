@@ -8,7 +8,10 @@ public interface StudentService {
 
     StudentResponse saveStudent(StudentRequest request);
 
-    StudentResponse getAllStudentById(Long id);
+    StudentResponse getStudentById(Long id);
+
+    StudentResponse getStudentByEmail(String email);
+
 
     List<StudentResponse> getAllStudents();
 
