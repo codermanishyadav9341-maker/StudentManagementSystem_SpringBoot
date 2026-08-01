@@ -8,6 +8,7 @@ import com.manish.studentmanagementsystem_springboot.dto.response.StudentRespons
 import com.manish.studentmanagementsystem_springboot.entity.Student;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
 import java.util.List;
 
 @Component
@@ -60,8 +61,8 @@ public class StudentMapper { // StudentMapper-> dto or entity ke beech data conv
         response.setAge(student.getAge());
         response.setGender(student.getGender());
         response.setAddress(student.getAddress());
-        response.setDateOfBirth(student.getDateOfBirth());
-        response.setAdmissionDate(student.getAdmissionDate());
+        response.setDateOfBirth((Date)student.getDateOfBirth());
+        response.setAdmissionDate((Date)student.getAdmissionDate());
         response.setFee(student.getFee());
         response.setStatus(student.getStatus());
         

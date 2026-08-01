@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.time.LocalDate;
 @Getter
 @Setter
@@ -14,18 +15,18 @@ import java.time.LocalDate;
 @Table
 public class StudentResponse {
 
-    private Long id;
+    private int id;
     private String name;
-    private Integer age;
+    private int age;
     private String gender;
     private String address;
     private String email;
     private String phone;
-    private LocalDate dateOfBirth;
-    private LocalDate admissionDate;
+    private Date dateOfBirth;
+    private Date admissionDate;
     private String course;
     private Double fee;
     private String status;
-    private LocalDate createdAt;
-    private LocalDate updateAt;
+    private Date createdAt;
+    private Date updateAt;
 }
