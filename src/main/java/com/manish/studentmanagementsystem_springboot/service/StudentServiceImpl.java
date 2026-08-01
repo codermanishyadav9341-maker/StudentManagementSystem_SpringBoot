@@ -17,12 +17,12 @@ public class StudentServiceImpl implements StudentService{
 
     private final StudentMapper studentMapper;
 
-    //Constructor;
+    //==========================================Constructor============================================
     public StudentServiceImpl(StudentRepository studentRepository , StudentMapper studentMapper){
         this.studentRepository = studentRepository;
         this.studentMapper = studentMapper;
     }
-    //----------------------------------Save new Student:------------------------------------------
+    //====================================Save Student====================================================
     @Override
     public StudentResponse saveStudent(StudentRequest request){
         Student student = studentMapper.toEntity(request);
@@ -31,7 +31,7 @@ public class StudentServiceImpl implements StudentService{
 
         return studentMapper.toResponse(saveStudent);
     }
-
+//==============================Student Search by Id========================================================
     @Override
     public StudentResponse getStudentById(Long id){
 
@@ -39,7 +39,7 @@ public class StudentServiceImpl implements StudentService{
                 .orElseThrow(()-> new RuntimeException("Student does not found with id " +id));
         return studentMapper.toResponse(student);
     }
-
+// ===============================Student Search by Email=================================================
     @Override
     public StudentResponse getStudentByEmail(String email){
 
@@ -47,7 +47,7 @@ public class StudentServiceImpl implements StudentService{
                 .orElseThrow(() -> new  RuntimeException("Student does not found with email:- " +email));
         return studentMapper.toResponse(student);
     }
-
+//======================================View All Students==================================================
     @Override
     public List<StudentResponse> getAllStudents(){
 
@@ -56,7 +56,7 @@ public class StudentServiceImpl implements StudentService{
         return studentMapper.toResponseList(students);
 
     }
-
+//==========================================Update Student==================================================
     @Override
     public StudentResponse updateStudent(Long id,StudentRequest request){
 
@@ -82,7 +82,7 @@ public class StudentServiceImpl implements StudentService{
         return StudentMapper.toResponse(updateStudent);
 
     }
-
+//===============================================Delete Student============================================
     @Override
     public void deleteStudent(Long id){
         Student student = studentRepository.findById(id)
