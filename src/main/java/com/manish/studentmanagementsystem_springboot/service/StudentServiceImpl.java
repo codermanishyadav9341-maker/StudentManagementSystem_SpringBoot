@@ -48,4 +48,47 @@ public class StudentServiceImpl implements StudentService{
         return studentMapper.toResponse(student);
     }
 
+    @Override
+    public List<StudentResponse> getAllStudents(){
+
+        List<Student> students = studentRepository.findAll();
+
+        return studentMapper.toResponseList(students);
+
+    }
+
+    @Override
+    public StudentResponse updateStudent(Long id,StudentRequest request){
+
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Student does not found with id " +id));
+
+
+        student.setName(request.getName());
+        student.setAge(request.getAge());
+        student.setGender(request.getGender());
+        student.setEmail(request.getEmail());
+        student.setPhone(request.getPhone());
+        student.setAddress(request.getAddress());
+        student.setDateOfBirth(request.getDateOfBirth());
+        student.setAdmissionDate(request.getAdmissionDate());
+        student.setCourse(request.getCourse());
+        student.setFee(request.getFee());
+        student.setStatus(request.getStatus());
+
+
+        Student updateStudent = studentRepository.save(student);
+
+        return StudentMapper.toResponse(updateStudent);
+
+    }
+
+    @Override
+    public void deleteStudent(Long id){
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Student does not found with id " +id));
+
+        studentRepository.delete(student);
+
+    }
 }

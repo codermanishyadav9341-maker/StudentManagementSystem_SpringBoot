@@ -8,6 +8,8 @@ import com.manish.studentmanagementsystem_springboot.dto.response.StudentRespons
 import com.manish.studentmanagementsystem_springboot.entity.Student;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class StudentMapper { // StudentMapper-> dto or entity ke beech data convert karne ke liya use hota hai
     
@@ -65,5 +67,16 @@ public class StudentMapper { // StudentMapper-> dto or entity ke beech data conv
         
         return response;
 
+    }
+
+    public List<StudentResponse> toResponseList(List<Student> students) {
+
+        if (students == null) {
+            return null;
+        }
+
+        return students.stream()
+                .map(StudentMapper::toResponse)
+                .toList();
     }
 }
