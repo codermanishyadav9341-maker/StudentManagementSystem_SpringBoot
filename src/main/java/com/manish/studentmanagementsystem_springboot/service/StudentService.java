@@ -9,7 +9,7 @@ public interface StudentService {
     StudentResponse saveStudent(StudentRequest request);
 
     //=======================Student Search by Id================================
-    StudentResponse getStudentById(Long id);
+    StudentResponse getStudentById(int id);
 
     //=======================Student Search by email==================================
     StudentResponse getStudentByEmail(String email);

@@ -33,9 +33,9 @@ public class StudentServiceImpl implements StudentService{
     }
 //==============================Student Search by Id========================================================
     @Override
-    public StudentResponse getStudentById(Long id){
+    public StudentResponse getStudentById(int id){
 
-        Student student = studentRepository.findById(id)
+        Student student = studentRepository.findById((long)id)
                 .orElseThrow(()-> new RuntimeException("Student does not found with id " +id));
         return studentMapper.toResponse(student);
     }
